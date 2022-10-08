@@ -1,0 +1,30 @@
+<ng-container *ngIf="filteredPost.length > 0">
+  <ng-container *ngFor="let post of filteredPost">
+    <ion-card class="" mode="ios" (click)="goPostDetail(post.id)">
+      <ion-card-header>
+        <ion-card-subtitle
+          >{{ post.name }} ( {{ post.username }} )</ion-card-subtitle
+        >
+        <ion-card-title>{{ post.title }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content> {{ post.body }} </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ng-container>
+
+<div
+  *ngIf="filteredPost.length == 0"
+  class="container alert alert-danger"
+  role="alert"
+>
+  Records not found
+</div>
+<app-pagination
+  [current]="current"
+  [total]="total"
+  [perPage]="perPage"
+  (goTo)="onGoTo($event)"
+  (next)="onNext($event)"
+  (previous)="onPrevious($event)"
+></app-pagination>

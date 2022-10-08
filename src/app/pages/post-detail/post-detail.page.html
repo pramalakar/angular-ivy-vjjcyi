@@ -1,0 +1,15 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true" scroll-y="false" class="ion-padding">
+  <ng-container *ngIf="post">
+    <h4>{{ post.title | uppercase }}</h4>
+    <p>{{ post.body }}</p>
+    <p>Author: {{ user.name }}</p></ng-container
+  >
+</ion-content>
